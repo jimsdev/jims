@@ -225,6 +225,36 @@ body {
     box-shadow: 0 0 5px var(--glow);
 }
 
+.visitor-counter {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    z-index: 1000;
+    background: rgba(10, 0, 0, 0.7);
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.visitor-counter:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+    color: var(--text-primary);
+}
+
+.visitor-counter i {
+    color: var(--accent);
+    font-size: 1rem;
+}
+
 .boot-card::before {
     content: "";
     position: absolute;
@@ -403,6 +433,52 @@ body {
     border-color: var(--accent);
     box-shadow: 0 0 25px var(--glow);
     transform: scale(1.1);
+}
+
+/* Custom Tooltip Styling */
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: calc(100% + 15px);
+    top: 50%;
+    transform: translateY(-50%) translateX(-10px);
+    background: rgba(10, 0, 0, 0.9);
+    color: var(--text-primary);
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-family: 'JetBrains Mono', monospace;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--accent);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    z-index: 10000;
+}
+
+[data-tooltip]::before {
+    content: '';
+    position: absolute;
+    left: calc(100% + 5px);
+    top: 50%;
+    transform: translateY(-50%) translateX(-10px);
+    border: 5px solid transparent;
+    border-right-color: var(--accent);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 10000;
+}
+
+[data-tooltip]:hover::after,
+[data-tooltip]:hover::before {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
 }
 
 .content-wrapper {
