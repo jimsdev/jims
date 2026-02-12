@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jims — Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+  <body>
+    <div id="particles-js"></div>
+    <div id="boot-screen">
+        <div class="start-prompt" id="start-prompt">
+            <i class="fas fa-power-off"></i>
+            <span>CLIQUEZ POUR INITIALISER</span>
+        </div>
+        <div class="boot-card hidden" id="boot-card">
+            <div class="boot-header">
+                <i class="fas fa-terminal"></i> system.boot
+            </div>
+            <div class="boot-logs" id="boot-logs">
+            </div>
+            <div class="boot-progress-container">
+                <div class="boot-progress-bar" id="boot-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">ENG</button>
+    </div>
+
+    <nav class="sidebar">
+        <div class="nav-items">
+            <div class="nav-item active" data-section="home" title="Home" data-i18n-title="nav_home">
+                <i class="fas fa-home"></i>
+            </div>
+            <div class="nav-item" data-section="projects" title="Projects" data-i18n-title="nav_projects">
+                <i class="fas fa-folder-open"></i>
+            </div>
+            <div class="nav-item" data-section="build" title="What I Build" data-i18n-title="nav_build">
+                <i class="fas fa-code"></i>
+            </div>
+            <div class="nav-item" data-section="contact" title="Contact" data-i18n-title="nav_contact">
+                <i class="fas fa-envelope"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content-wrapper hidden" id="main-content">
+        <div class="audio-controls">
+            <div class="volume-slider-container">
+                <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.1">
+            </div>
+            <button id="mute-btn" title="Mute/Unmute">
+                <i class="fas fa-volume-up"></i>
+            </button>
+        </div>
+        <section id="home" class="content-section active">
+            <h1 class="gradient-text">Jim's</h1>
+            <p class="subtitle" data-i18n="hero_subtitle">Full-Stack Developer • Application Coder • Lua Expert</p>
+            <div class="local-time" id="local-time">
+                <i class="far fa-clock"></i> <span data-i18n="local_time">Local Time:</span> --:--
+            </div>
+            <p class="bio" data-i18n="bio_text">
+                Développeur polyvalent spécialisé dans la création d'applications, de loaders et de sites web modernes. 
+                Expert en Lua pour tout type de projet (FiveM, GMod, etc.) et maîtrise complète du développement Full-Stack.
+            </p>
+            
+            <div class="discord-card-large">
+                <div class="discord-user-info">
+                    <img id="discord-avatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar">
+                    <div class="discord-meta">
+                        <div class="discord-names">
+                            <span class="display-name" id="display-name">Jim's</span>
+                            <span class="username" id="username">@jims.banx100</span>
+                        </div>
+                        <div class="discord-status-tag" id="status-tag">offline</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="content-section">
+            <h2 class="section-title" data-i18n="projects_title">Projets</h2>
+            <p class="section-desc" data-i18n="projects_desc">Mes réalisations récentes</p>
+            <div class="projects-grid">
+                <div class="project-card soon-card">
+                    <div class="project-header">
+                        <h3 data-i18n="soon_title">SOON...</h3>
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <p data-i18n="soon_desc">Une vidéo de présentation arrive bientôt ici !</p>
+                    <div class="soon-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="build" class="content-section">
+            <h2 class="section-title" data-i18n="build_title">Développement Custom</h2>
+            <p class="section-desc" data-i18n="build_desc">Services professionnels sur mesure</p>
+            <div class="build-card">
+                <i class="fas fa-shield-alt shield-icon"></i>
+                <h3 data-i18n="build_card_title">Ce que je code</h3>
+                <ul class="build-list">
+                    <li data-i18n="build_list_1"><span>•</span> Sites Web Full-Stack & Dashboards</li>
+                    <li data-i18n="build_list_2"><span>•</span> Applications & Loaders (C++, C#)</li>
+                    <li data-i18n="build_list_3"><span>•</span> Scripts Lua (FiveM, GMod, etc.)</li>
+                    <li data-i18n="build_list_4"><span>•</span> Automatisation & Outils (Python)</li>
+                    <li data-i18n="build_list_5"><span>•</span> Systèmes de protection & Obfuscation</li>
+                    <li data-i18n="build_list_6"><span>•</span> Projets sur mesure (Web, App, Game)</li>
+                </ul>
+                <button class="contact-btn" data-i18n="contact_btn">Me Contacter</button>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+            <h2 class="section-title" data-i18n="contact_title">Contact</h2>
+            <p class="section-desc" data-i18n="contact_desc">Uniquement via Discord</p>
+            <div class="contact-grid">
+                <a href="https://discord.gg/dwB5KdfhP5" target="_blank" class="contact-card" style="text-decoration: none; max-width: 350px;">
+                    <div style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; border: 2px solid var(--accent); margin-bottom: 1rem;">
+                        <img src="img/logo.png" alt="Jim's - Development" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h3 style="color: var(--text-primary);">Jim's - Development</h3>
+                    <p class="response-time" data-i18n="contact_response">Réponse : Rapide</p>
+                    <p class="method-hint">discord.gg/dwB5KdfhP5 • Cliquez pour rejoindre</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
